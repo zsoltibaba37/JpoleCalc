@@ -71,7 +71,7 @@ print(f" Spacing                : ", end='')
 cprint(f"{d:.1f} mm", "yellow")
 
 linea()
-print("      ", end='')
+print("        ", end='')
 cprint(da.strftime("%c"), "green")
 linea()
 ########## END ##########
