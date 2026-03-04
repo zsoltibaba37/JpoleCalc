@@ -30,9 +30,12 @@ if len(argv) < 2:
 
 try:
     x = float(argv[1])
+    if x <= 0:
+        raise ValueError
 except ValueError:
     usage()
-    print("Use float number!\n")
+    print("Use float number !")
+    print("The number is zero or smaller then zero\n")
     exit()
 
 f = float(argv[1]) * 1e6          # Frequency
