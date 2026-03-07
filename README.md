@@ -21,6 +21,16 @@ $> ./jpoleCalc.py 446.1
       Fri Feb 27 19:45:59 2026
 ----------------------------------------
 ```
+![JPole Antenna](https://github.com/zsoltibaba37/JpoleCalc/blob/main/pics/image2.png)
+
+---
+
+![JPole Antenna](https://github.com/zsoltibaba37/JpoleCalc/blob/main/pics/image3.png)
+
+---
+
+![JPole Antenna](https://github.com/zsoltibaba37/JpoleCalc/blob/main/pics/image4.png)
+
 ---
 
 2026

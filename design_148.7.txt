@@ -1,0 +1,27 @@
+----------------------------------------
+       - J-Pole Antenna Design -
+----------------------------------------
+ The frequency is  : 148.7 MHz
+ The lambda is     : 2016.1 mm
+----------------------------------------
+ Long section element   : 1451.6 mm
+ Short section element  : 483.9 mm
+ Feed point             : 48.4 mm
+ Spacing                : 45.4 mm
+----------------------------------------
+        Sat Mar  7 10:06:40 2026
+----------------------------------------
+
+Real length
+
+ Long section element   : 1447.0 mm
+ Short section element  : 479 mm
+ Feed point             : 49.0 mm
+ Spacing                : 45.0 mm
+
+ Measured values: 
+ SWR:	1.08
+ Z:	50 Ω
+ X:	0.01
+
+
