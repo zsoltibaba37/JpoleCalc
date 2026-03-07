@@ -12,7 +12,9 @@
         Sat Mar  7 10:06:40 2026
 ----------------------------------------
 
-Real length
+Real lengths and frequencies
+
+ Resonant frequency: 145.9 MHz
 
  Long section element   : 1447.0 mm
  Short section element  : 479 mm
@@ -24,4 +26,5 @@ Real length
  Z:	50 Ω
  X:	0.01
 
+----------------------------------------
 
