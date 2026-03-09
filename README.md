@@ -2,7 +2,7 @@
 ---
 ## Usage
 ```bash
-$> ./jpoleCalc.py 446.1
+$> ./jpoleCalc.py 446.1 15
 
 ```
 
