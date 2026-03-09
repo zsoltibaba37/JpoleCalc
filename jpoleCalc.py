@@ -10,9 +10,11 @@ __status__ = "Stable"
 from sys import argv, exit
 from termcolor import cprint
 import datetime
+from math import log10
 
 da = datetime.datetime.now()
-example = 446.1
+example = 145.9
+tube_example = 15
 
 def linea():
     print("----------------------------------------")
@@ -21,16 +23,19 @@ def usage():
     print(f"{argv[0]} {__version__}")
     print(f"{__copyright__} {__author__}\n")
     print("Usage:")
-    print(f"$> python {argv[0]} {example}\n")
+    print(f"$> python {argv[0]} {example} {tube_example}\n")
 
-if len(argv) < 2:
+if len(argv) < 3:
     usage()
-    print(f"Need Frequency !!! \n")
+    print(f"Need Frequency and tube diameter !!!\n")
     exit(1)
 
 try:
     x = float(argv[1])
+    y = float(argv[2]) 
     if x <= 0:
+        raise ValueError
+    if y <= 0:
         raise ValueError
 except ValueError:
     usage()
@@ -38,9 +43,9 @@ except ValueError:
     print("The number is zero or smaller then zero\n")
     exit()
 
-f = float(argv[1]) * 1e6          # Frequency
-c = 299_792_458                   # Speed of light ~
-vf = 0.96                         # Velocity factor Cooper and Alu
+f_mhz = float(argv[1])              # Frequency
+c = 299792.458                      # Speed of light ~
+d_tube = float(argv[2])             # Tube diameter
 
 ##################################################################
 ########## Calculations ##########
@@ -50,19 +55,31 @@ Short section dimension (B)     (l/4) * vf
 Feed point dimension (C)        (l/50) * vf  - the correct formula is (l/40) * vf  
 Spacing dimension (D)           (0.045 * l) / 2
 '''
-l = c / f
+l_mm = (c / f_mhz)
+# 1. Slenderness factor (L/d ratio)
+# The thicker the pipe, the lower the velocity factor (K-factor)
+ratio = (l_mm / 2) / d_tube
+# Empirical formula for thick bars:
+vf = 0.97 - (0.5 / (log10(ratio) * 10))
+# 2. End Effect Correction
+# Due to the thickness of the tube, the field "exits" at the end, which corresponds to approximately 0.3-0.5 * diameter
+# extra length electrically. This must be subtracted from the physical length!
+end_correction = 0.43 * d_tube
 
-a = l * 0.75 * vf * 1e3
-b = (l / 4) * vf * 1e3
-c = (l / 40) * vf * 1e3
-d = (0.045 * l) / 2 * 1e3
+a = (l_mm * 0.75 * vf) - end_correction
+b = ((l_mm / 4) * vf ) - end_correction
+c = ((l_mm / 40) * vf ) - end_correction
+d = (0.045 * l_mm) / 2 
+d = (0.022 *l_mm)
 
 linea()
 print("       - J-Pole Antenna Design -")
 linea()
 print(f" The frequency is  : ", end='')
 cprint(f"{argv[1]} MHz", "yellow")
-print(f" The lambda is     : {l*1e3:.1f} mm")
+print(f" The lambda is     : {l_mm:.1f} mm")
+print(f" The tube diameter : ", end='')
+cprint(f"{d_tube:.1f} mm", "green")
 linea()
 print(f" Long section element   : ", end='')
 cprint(f"{a:.1f} mm", "green")
