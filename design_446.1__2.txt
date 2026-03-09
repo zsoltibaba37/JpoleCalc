@@ -3,13 +3,14 @@
 ----------------------------------------
  The frequency is  : 446.1 MHz
  The lambda is     : 672.0 mm
+ The tube diameter : 15.0 mm
 ----------------------------------------
- Long section element   : 483.9 mm
- Short section element  : 161.3 mm
- Feed point             : 16.1 mm
- Spacing                : 15.1 mm
+ Long section element   : 463.8 mm
+ Short section element  : 150.3 mm
+ Feed point             : 9.2 mm
+ Spacing                : 14.8 mm
 ----------------------------------------
-        Sun Mar  8 12:12:15 2026
+        Mon Mar  9 15:07:41 2026
 ----------------------------------------
 
  H155A
@@ -17,12 +18,18 @@
 
 ----------------------------------------
 
+My spacing is 40mm
+40/14.8 = 2.7
+2.7 * 9.2 = 24.84 = ~25mm feed point
+
+----------------------------------------
+
 Real lengths and frequencies
 
  Resonant frequency: ???.? MHz
 
- Long section element   : 488.0 mm
- Short section element  : 161 mm
+ Long section element   : 464.0 mm
+ Short section element  : 152.0 mm
  Feed point             : 25.0 mm
  Spacing                : 40.0 mm
 
