@@ -47,6 +47,8 @@ f_mhz = float(argv[1])              # Frequency
 c = 299792.458                      # Speed of light ~
 d_tube = float(argv[2])             # Tube diameter
 
+
+
 ##################################################################
 ########## Calculations ##########
 '''
@@ -56,21 +58,30 @@ Feed point dimension (C)        (l/50) * vf  - the correct formula is (l/40) * v
 Spacing dimension (D)           (0.045 * l) / 2
 '''
 l_mm = (c / f_mhz)
+l = (c*1e3) / (f_mhz*1e6)
+#print(l)
 # 1. Slenderness factor (L/d ratio)
 # The thicker the pipe, the lower the velocity factor (K-factor)
 ratio = (l_mm / 2) / d_tube
 # Empirical formula for thick bars:
-vf = 0.97 - (0.5 / (log10(ratio) * 10))
+vf = 0.99 - (0.5 / (log10(ratio) * 10))
+#vf = 0.96
 # 2. End Effect Correction
 # Due to the thickness of the tube, the field "exits" at the end, which corresponds to approximately 0.3-0.5 * diameter
 # extra length electrically. This must be subtracted from the physical length!
-end_correction = 0.43 * d_tube
 
-a = (l_mm * 0.75 * vf) - end_correction
-b = ((l_mm / 4) * vf ) - end_correction
-c = ((l_mm / 40) * vf ) - end_correction
-d = (0.045 * l_mm) / 2 
-d = (0.022 *l_mm)
+# end_correction = 0.43 * d_tube
+
+'''
+a = (l_mm * 0.75 * vf) # - end_correction
+b = ((l_mm / 4) * vf ) # - end_correction
+c = ((l_mm / 40) * vf )
+d = (0.045 * l_mm) / 2 # 0.45 origin 
+'''
+a = l * 0.75 * vf * 1e3
+b = (l / 4) * vf * 1e3
+c = (l / 40) *vf * 1e3
+d = ((0.045 * l) / 2) * 1e3
 
 linea()
 print("       - J-Pole Antenna Design -")
