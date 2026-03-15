@@ -30,8 +30,8 @@ Real lengths and frequencies
 
  Long section element   : 483.0 mm
  Short section element  : 171.0 mm
- Feed point             : 40.0 mm
- Spacing                : 40.0 mm
+ Feed point             : 45.0 mm from the tube middle
+ Spacing                : 40.0 mm from the tube middle
 
  Measured values: 
  SWR:	1.029
