@@ -26,17 +26,17 @@ My spacing is 40mm
 
 Real lengths and frequencies
 
- Resonant frequency: ???.? MHz
+ Resonant frequency: 446.1 MHz
 
- Long section element   : 464.0 mm
- Short section element  : 152.0 mm
- Feed point             : 25.0 mm
+ Long section element   : 483.0 mm
+ Short section element  : 171.0 mm
+ Feed point             : 40.0 mm
  Spacing                : 40.0 mm
 
  Measured values: 
- SWR:	?.??
- Z:	?? Ω
- X:	?.??
+ SWR:	1.029
+ Z:	50.49 Ω
+ X:	50.48 -j 0.064 ohm
 
 ----------------------------------------
 

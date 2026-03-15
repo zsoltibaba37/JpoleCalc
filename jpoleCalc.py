@@ -64,7 +64,7 @@ l = (c*1e3) / (f_mhz*1e6)
 # The thicker the pipe, the lower the velocity factor (K-factor)
 ratio = (l_mm / 2) / d_tube
 # Empirical formula for thick bars:
-vf = 0.99 - (0.5 / (log10(ratio) * 10))
+vf = 0.996 - (0.5 / (log10(ratio) * 10))
 #vf = 0.96
 # 2. End Effect Correction
 # Due to the thickness of the tube, the field "exits" at the end, which corresponds to approximately 0.3-0.5 * diameter
@@ -82,6 +82,10 @@ a = l * 0.75 * vf * 1e3
 b = (l / 4) * vf * 1e3
 c = (l / 40) *vf * 1e3
 d = ((0.045 * l) / 2) * 1e3
+
+if c <= d_tube*2:
+    c = c*2.5
+    d = d * 2.6
 
 linea()
 print("       - J-Pole Antenna Design -")
